@@ -1,0 +1,9 @@
+select(class="oscillatortype")
+  option(value="sine", selected=type=="sine") Sine
+  option(value="square", selected=type=="square") Square
+  option(value="triangle", selected=type=="tiangle") Triangle
+  option(value="sawtooth", selected=type=="sawtooth") Sawtooth
+
+input(type="range", class="gain", value=gain, min=0, max=1, step=.01)
+
+input(type="range", class="detune", value=detune, min=-1200, max=1200, step=50)

@@ -1,0 +1,38 @@
+doctype 5
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    title Web Audio Editor
+
+    link(rel="icon", type="image/png", href="/images/bear.png")
+    link(rel='stylesheet', href='/styles/pure-min.css')
+    link(rel='stylesheet', href='/styles/static.css')
+    block head
+
+  body
+
+    .pure-g
+      .pure-u-1-5
+      .pure-u-3-5
+        nav
+          .pure-menu.pure-menu-open.pure-menu-horizontal
+            ul
+              li
+                a(href='/') Home
+              if user
+                li
+                  a(href='/me') My Arrangements
+                li
+                  a(href='/logout') Logout
+              else
+                li
+                  a(href='/login') Login
+                li
+                  a(href='/register') Register
+
+
+    .pure-g
+      .pure-u-1-5
+      .pure-u-3-5
+        block content

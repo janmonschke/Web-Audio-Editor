@@ -1,0 +1,7 @@
+extends base-layout
+
+block content
+  form(action='/login', method='post', class='pure-form pure-form-stacked')
+    input(name='username', placeholder='Username', autofocus)
+    input(name='password', placeholder='Password', type='password')
+    input(type='submit', value='Login', class='pure-button pure-button-primary')

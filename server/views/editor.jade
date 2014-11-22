@@ -1,0 +1,13 @@
+extends editor-layout
+
+block head
+  script(src='/socket.io/socket.io.js')
+  script(src='/js/vendor.js')
+  script(src='/js/partials.js')
+  script(src='/js/app.js')
+
+block content
+  script(src='//static.opentok.com/webrtc/v2.2/js/opentok.min.js')
+
+  #content
+    div(ng-view)

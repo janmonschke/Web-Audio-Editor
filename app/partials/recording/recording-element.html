@@ -1,0 +1,20 @@
+<div class="recording-container">
+
+  <div class="visualization-container">
+    <canvas level-control ng-model="node" height="60" width="20"></canvas>
+    <canvas frequency-spectrum></canvas>
+  </div>
+
+  <div class="vertical-button-container">
+    <label class="topcoat-checkbox">
+      <input type="checkbox" ng-model="speakers"/>
+      <div class="topcoat-checkbox__checkmark"></div>
+      <span>Speakers?</span>
+    </label>
+    <button class="topcoat-button record" ng-click="triggerRecording()" ng-class="{'animation--pulsing-border': isRecording}">Record</button>
+    <button class="topcoat-button play" ng-click="playRecording()" ng-show="recordedNode">Play Recording</button>
+    <button class="topcoat-button upload" ng-click="uploadRecording()" ng-show="recordedNode">Upload Recording</button>
+    <div ng-if="isUploading">Progress {{uploadProgress}}%</div>
+    <button class="topcoat-button cancel" ng-click="cancelRecording()">Cancel</button>
+  </div>
+</div>

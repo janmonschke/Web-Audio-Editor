@@ -1,0 +1,41 @@
+.piece
+  margin-top: 14px
+  position: absolute
+  border-radius: piece-border-radius
+  border: 1px solid darkgrey-background
+  opacity: .85
+  height: piece-height
+
+  &.buffered
+    background-color: grey-background
+
+  &.drum
+    background-color: white
+
+    canvas
+      border-radius: piece-border-radius
+
+  &.synthesizer
+    canvas
+      border-radius: 10px
+      padding: 5px 0
+      border: 1px solid #666
+      transition: all .1s linear
+      background-color: rgba(255,255,255,.1)
+      min-width: 50px
+
+  .remove
+    opacity: 0
+    position: absolute
+    top: 0
+    left: 0
+    font-size: 11px
+    padding: 2px
+    border-top-left-radius: 3px
+    background-color: remove-red
+    cursor: pointer
+    transition: opacity .2s linear
+
+  &:hover
+    .remove
+      opacity: 1

@@ -1,0 +1,27 @@
+extends base-layout
+
+mixin arrangementList(arrangements)
+  ol
+    each arrangement in arrangements
+      li
+        a(href= '/arrangement/' + arrangement._id)= arrangement.title
+
+block content
+
+  h1 Hey #{user.username}
+
+  if arrangements.length > 0
+    h2 Your Arrangements
+
+    +arrangementList(arrangements)
+
+  if sharedArrangements.length > 0
+    h2 Arrangements shared with you
+
+    +arrangementList(sharedArrangements)
+
+  form(action='/arrangement/new', method='post', class='pure-form')
+    fieldset
+      legend Create a new arrangement
+      input(type='text', placeholder='Title', name='title')
+      input(type='submit', value='Create' class='pure-button pure-button-primary')

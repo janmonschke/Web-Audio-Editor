@@ -1,0 +1,30 @@
+body{
+  color: #777;
+}
+
+nav{
+  border-bottom: 1px solid #aaa;
+}
+
+a {
+  color: #3b8bba;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #265778;
+}
+
+h1{
+  font-weight: bold;
+  color: rgb(75, 75, 75);
+}
+
+h2{
+  font-weight: 100%;
+  color: #666;
+}
+
+input[type=text]{
+  margin-right: 5px;
+}

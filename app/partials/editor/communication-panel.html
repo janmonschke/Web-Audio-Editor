@@ -1,0 +1,9 @@
+<div class="menu-header">
+  <span>Communication</span>
+  <span class="icon-cancel close" ng-click="hideCommunicationPanel()"></span>
+</div>
+
+<div class="communication-panel-streams">
+  <div communication-publisher ng-if="publisher" class="communication-panel-stream"></div>
+  <div communication-stream ng-repeat="stream in streams" class="communication-panel-stream"></div>
+</div>

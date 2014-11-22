@@ -1,0 +1,8 @@
+extends base-layout
+
+block content
+  form(action='/register', method='post', class='pure-form pure-form-stacked')
+    input(name='username', placeholder='Username', required, autofocus)
+    input(name='email', placeholder='E-Mail', type='email', required)
+    input(name='password', placeholder='Password', type='password', required)
+    input(type='submit', value='Register', class='pure-button pure-button-primary')

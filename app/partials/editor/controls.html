@@ -1,0 +1,31 @@
+<div class="master-track">
+  <div class="controls">
+    <button class="topcoat-button play-pause" ng-click="playPause()">
+      <div ng-class="isPlaying()"></div>
+    </button>
+
+    <button class="topcoat-button stop" ng-click="stop()">
+      <div class="icon-stop"></div>
+    </button>
+
+    <input type="range" class="topcoat-range gain" min="0" max="1" step="0.1" ng-model="gain" />
+
+    <input type="range" class="topcoat-range zoom" min="10" max="200" step="10", value="30" ng-model="config.pixelsPerSecond" ng-disabled="playing">
+
+    <button class="topcoat-button record-mock">Record</button>
+
+    <button class="topcoat-button file-browser" ng-click="showFiles()">File Browser</button>
+    <button class="topcoat-button communication-panel" ng-click="showCommunication()">Communication</button>
+
+    <div ng-show="isFileBrowserVisible()" file-browser id="file-browser"></div>
+    <div ng-show="isCommunicationPanelVisible()" communication-panel id="communication-panel"></div>
+
+    <button class="topcoat-button add-track" ng-click="showMenu = !showMenu">Add Track</button>
+    <ul class="add-track-menu" ng-show="showMenu">
+      <li ng-click="addTrack('recording')">Recording</li>
+      <li ng-click="addTrack('drums')">Drums</li>
+      <li ng-click="addTrack('synthesizer')">Synthesizer</li>
+    </ul>
+
+  </div>
+</div>

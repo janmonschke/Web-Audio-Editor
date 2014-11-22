@@ -1,0 +1,63 @@
+<html>
+<head>
+  <title>Track Bar Animation Comparison</title>
+  <script type="text/javascript" src="../../vendor/js/jquery.js"></script>
+  <style type="text/css">
+    .bar{
+      width: 2px;
+      height: 200px;
+      position: absolute;
+      left: 10px;
+      top: 0;
+      background-color: #bada55;
+    }
+
+    .bar.animated{
+      transition-property: left;
+      transition-timing-function: linear;
+    }
+
+    .bar.notAnimated{
+      transition-property: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="css-animated bar"></div>
+
+<div class="js-animated bar"></div>
+
+<button id="css-animation">Animate with CSS</button>
+<button id="js-animation">Animate with JS</button>
+
+
+<script type="text/javascript">
+  var start = 10;
+  var end = 400;
+  var duration = '3s';
+  var jsDuration = 3000;
+  var $cssAnimatedBar = $('.css-animated.bar');
+  var $jsAnimatedBar = $('.js-animated.bar');
+
+  $('#css-animation').click(function(){
+    $cssAnimatedBar.addClass('animated').removeClass('notAnimated').css({
+      transitionDuration: duration,
+      left: end + 'px'
+    }).one('transitionend', function(){
+      $cssAnimatedBar.removeClass('animated').addClass('notAnimated');
+
+      setTimeout(function(){$cssAnimatedBar.css('left', start+'px')}, 1);
+    });
+  });
+
+  $('#js-animation').click(function(){
+    $jsAnimatedBar.animate({left: end+'px'}, jsDuration, 'linear', function(){
+      $jsAnimatedBar.css('left', start+'px');
+    });
+  });
+
+</script>
+
+</body>
+</html>

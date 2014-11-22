@@ -1,0 +1,6 @@
+<table>
+  <tr ng-repeat="instrument in instruments">
+    <td>{{ instrument }}</td>
+    <td ng-repeat="beat in node[currentPatternName].data.beats[instrument] track by $index" ng-class="{ beat: beat, nobeat: !beat, currentbeat: (loopBeat == $index) }" ng-click="changeBeat(instrument, $index, beat)"></td>
+  </tr>
+</table>

@@ -1,0 +1,38 @@
+<div class="track">
+  <div class="controls">
+
+    <button class="topcoat-icon-button--quiet add-piece" ng-click="addPiece()">
+      <span class="topcoat-icon icon-plus"></span>
+    </button>
+
+    <button class="topcoat-icon-button--quiet remove-track" ng-click="removeTrack()">
+      <span class="topcoat-icon icon-cancel remove"></span>
+    </button>
+
+    <div class="label" contenteditable ng-model="track.title">{{ track.title }}</div>
+    <input type="range" class="topcoat-range gain" min="0" max="1" step="0.1" ng-model="track.gain" />
+
+    <div class="track-settings topcoat-button-bar">
+      <div class="topcoat-button-bar__item">
+        <button class="topcoat-button-bar__button mute" ng-class="{active: muted}" ng-click="toggleMute()">Mute</button>
+      </div>
+      <div class="topcoat-button-bar__item">
+        <button class="topcoat-button-bar__button solo" ng-class="{active: solo}" ng-click="toggleSolo()">Solo</button>
+      </div>
+      <div class="topcoat-button-bar__item">
+        <button class="topcoat-button-bar__button effects">Effects</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pieces" ng-repeat="piece in track.pieces track by piece.id">
+    <div ng-switch on='piece.type'>
+      <buffered-piece ng-switch-when='buffer' ng-model='piece'></buffered-piece>
+      <drum-piece ng-switch-when='drum' ng-model='piece'></drum-piece>
+      <synthesizer-piece ng-switch-when='synthesizer' ng-model='piece'></synthesizer-piece>
+    </div>
+  </div>
+</div>
+
+<div class="additional-content" id="additional-content-{{track.id}}"></div>

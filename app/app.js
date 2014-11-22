@@ -1,0 +1,1 @@
+window.app = angular.module('app', ['templates-main', 'ngRoute']);

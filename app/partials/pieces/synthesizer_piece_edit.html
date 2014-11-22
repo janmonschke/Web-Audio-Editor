@@ -1,0 +1,174 @@
+<div class="notes-grid">
+  <div ng-repeat="note in node.notes" class="note-row">
+    <div class="note-key" ng-class="{ black: note.length > 2 }"></div>
+    <div class="tone-container" ng-dblclick="addTone(note, $event)" style="height: 15px;">
+      <div class="synth-tone" synth-tone draggable-piece draggable-editor-element position="tone.position" ng-repeat="tone in node.tonesByNote(note) track by tone.id" ng-dblclick="removeTone(tone, $event)"></div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="oscillators">
+    <div class="oscillator block unit">
+      <h4>Oscillator 1</h4>
+
+      <div class="subrow">
+        <div class="title">Type</div>
+        <select class="wavetype topcoat-select" ng-model="synthSettings.osc1.type">
+          <option ng-repeat="type in node.oscillatorTypes">{{ type }}</option>
+        </select>
+      </div>
+
+      <div class="subrow">
+        <div class="title">Detune</div>
+        <input type="range" class="topcoat-range detune" ng-model="synthSettings.osc1.detune" min="-1200" max="1200" step="50" />
+      </div>
+
+      <div class="subrow">
+        <div class="title">Gain</div>
+        <input type="range" class="topcoat-range gain" ng-model="synthSettings.osc1.gain" min="0", max="1", step=".01" />
+      </div>
+    </div>
+
+    <div class="oscillator block unit">
+      <h4>Oscillator 2</h4>
+
+      <div class="subrow">
+        <div class="title">Type</div>
+        <select class="wavetype topcoat-select" ng-model="synthSettings.osc2.type">
+          <option ng-repeat="type in node.oscillatorTypes">{{ type }}</option>
+        </select>
+      </div>
+
+      <div class="subrow">
+        <div class="title">Detune</div>
+        <input type="range" class="topcoat-range detune" ng-model="synthSettings.osc2.detune" min="-1200" max="1200" step="50" />
+      </div>
+
+      <div class="subrow">
+        <div class="title">Gain</div>
+        <input type="range" class="topcoat-range gain" ng-model="synthSettings.osc2.gain" min="0", max="1", step=".01" />
+      </div>
+    </div>
+
+
+    <div class="oscillator block unit">
+      <h4>Oscillator 3</h4>
+
+      <div class="subrow">
+        <div class="title">Type</div>
+        <select class="wavetype topcoat-select" ng-model="synthSettings.osc3.type">
+          <option ng-repeat="type in node.oscillatorTypes">{{ type }}</option>
+        </select>
+      </div>
+
+      <div class="subrow">
+        <div class="title">Detune</div>
+        <input type="range" class="topcoat-range detune" ng-model="synthSettings.osc3.detune" min="-1200" max="1200" step="50" />
+      </div>
+
+      <div class="subrow">
+        <div class="title">Gain</div>
+        <input type="range" class="topcoat-range gain" ng-model="synthSettings.osc3.gain" min="0", max="1", step=".01" />
+      </div>
+    </div>
+
+    <div class="block unit">
+      <h4>Envelope</h4>
+      <div class="sub-row">
+        <div class="title">Attack</div>
+        <input type="range" class="topcoat-range attack" ng-model="synthSettings.toneEnvelope.attack" min="0" max="1" step=".01" />
+      </div>
+
+      <div class="sub-row">
+        <div class="title">Boost</div>
+        <input type="range" class="topcoat-range release" ng-model="synthSettings.toneEnvelope.boost" min="0" max="1" step=".01" />
+      </div>
+
+      <div class="sub-row">
+        <div class="title">Decay</div>
+        <input type="range" class="topcoat-range decay" ng-model="synthSettings.toneEnvelope.decay" min="0" max="1" step=".01" />
+      </div>
+
+    </div>
+
+    <div class="block unit">
+
+      <div class="sub-row">
+        <div class="title">Sustain</div>
+        <input type="range" class="topcoat-range release" ng-model="synthSettings.toneEnvelope.sustain" min="0" max="2" step=".01" />
+      </div>
+
+      <div class="sub-row">
+        <div class="title">Release</div>
+        <input type="range" class="topcoat-range release" ng-model="synthSettings.toneEnvelope.release" min="0" max="1" step=".01" />
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="row unit filter lefty">
+  <div class="block">
+    <h4>Filter</h4>
+    <div class="sub-row">
+      <div class="title">Type</div>
+      <select class="filtertype topcoat-select" ng-model="synthSettings.filter.type">
+        <option ng-repeat="type in node.filterTypes">{{ type }}</option>
+      </select>
+    </div>
+
+    <div class="sub-row">
+      <div class="title">Detune</div>
+      <input type="range" class="topcoat-range detune" ng-model="synthSettings.filter.detune" min="-1200" max="1200" step="50" />
+    </div>
+
+    <div class="sub-row">
+      <div class="title">Gain</div>
+      <input type="range" class="topcoat-range gain" ng-model="synthSettings.filter.gain" min="0", max="1", step=".01" />
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="sub-row">
+      <div class="title">Q</div>
+      <input type="range" class="topcoat-range q" ng-model="synthSettings.filter.Q" min="0", max="2", step=".01" />
+    </div>
+
+    <div class="sub-row">
+      <div class="title">Cutoff</div>
+      <input type="range" class="topcoat-range cutoff" ng-model="synthSettings.filter.frequency" min="0", max="22000", step=".01" />
+    </div>
+
+    <div class="sub-row">
+      <div class="title">Active</div>
+
+      <label class="topcoat-checkbox">
+        <input type="checkbox" ng-model="synthSettings.filter.activate">
+        <div class="topcoat-checkbox__checkmark"></div>
+      </label>
+    </div>
+  </div>
+
+</div>
+
+<div class="row lfo unit lefty">
+  <div class="block force-margin">
+    <h4>LFO</h4>
+
+    <div class="sub-row">
+      <div class="title">Type</div>
+      <select class="wavetype topcoat-select" ng-model="synthSettings.lfo.type">
+        <option ng-repeat="type in node.oscillatorTypes">{{ type }}</option>
+      </select>
+    </div>
+
+    <div class="sub-row">
+      <div class="title">Freq</div>
+      <input type="range" class="topcoat-range gain" ng-model="synthSettings.lfo.frequency" min="0", max="20", step="1" />
+    </div>
+  </div>
+</div>

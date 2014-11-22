@@ -1,0 +1,77 @@
+.synthesizer-piece-edit-container
+  padding: 0 10px
+
+  .unit
+    transition: background-color .1s linear
+
+    &:hover
+      background-color: rgba(255,255,255, .2)
+
+  .row
+    line-height: 2em
+
+    h4
+      margin: 5px 0
+
+    input
+      margin: 12px 5px
+
+    .topcoat-checkbox__checkmark
+      margin: 7px 5px
+
+    select
+      margin: 6px 5px
+      width: 90px
+
+    .block
+      display: inline-block
+      margin-left: 10px
+      padding: 5px
+
+      &:first-child
+        margin-left: 0
+
+      &.force-margin
+        margin-left: 10px
+
+    .title
+      display: inline-block
+      width: 50px
+
+    &.lefty
+      float: left
+
+  .notes-grid
+    margin-bottom: 20px
+
+  .note-row
+    width: 4000px
+    clear: both
+    border-bottom: 1px solid lighter-darkgrey-background
+
+  .note-key
+    width: 50px
+    height: 15px
+    background-color: white
+    border: 1px solid black
+    display: inline-block
+    float: left
+
+    &.black
+      background-color: black
+
+  .tone-container
+    position: relative
+
+    .synth-tone
+      position: absolute
+      height: 15px
+      background-color: #bada55
+      border: 1px solid darkgrey-background
+      margin-left: 55px
+
+      .width-handle
+        height: 15px
+        float: right
+        cursor: col-resize
+        width: 15px

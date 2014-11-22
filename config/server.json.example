@@ -1,0 +1,10 @@
+{
+  "publicPath": "public",
+
+  /* DATABASE */
+  "databaseURl": "127.0.0.1",
+  "databaseAdmin": "admin",
+  "databaseAdminPassword": ""
+
+  /* OAUTH */
+}

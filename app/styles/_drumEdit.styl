@@ -1,0 +1,104 @@
+.drum-piece-edit-container
+  padding: 10px
+
+  h4
+    margin: 15px 0 5px 0
+    font-weight: 500
+
+  .left-container
+    width: 150px
+    float: left
+
+  .right-container
+    width: 4000px
+
+  .bpm-chooser, .slot-chooser, .kit-chooser
+    div
+      display: inline-block
+      font-weight: 300
+      width: 50px
+
+    input
+      width: 35px
+
+    select
+      margin: 0
+      margin-left: -5px
+
+  .kit-chooser
+    margin-bottom: 20px
+
+  .pattern-container
+    width: 110px
+
+    div
+      padding: 5px 10px
+      margin: 3px 0
+      border: 1px solid lighter-darkgrey-background
+      display: inline-block
+      cursor: pointer
+      transition: background-color .1s linear
+
+      &:hover
+        background-color: lighter-darkgrey-background
+
+      &.active
+        border-color: #aaa
+        background-color: lighter-darkgrey-background
+
+  .parts-order-container
+    margin-left: 168px
+    margin-top: 5px
+    padding: 10px 0
+    font-size: 14px
+
+    &.drop-here
+      background-color: lighter-darkgrey-background
+
+    .pattern-description
+      margin-right: 10px
+
+    .pattern
+      display: inline-block
+      cursor: pointer
+
+      .move-left, .move-right
+        opacity: 0
+        transition: .1s opacity ease-out
+        font-size: 10px
+
+      .move-left
+        margin-left: 3px
+
+      .move-right
+        margin-right: 3px
+
+      .pattern-element
+        padding: 5px
+
+      &:hover
+        background-color: lighter-darkgrey-background
+
+        .move-left, .move-right
+          opacity: 1
+
+  .controls
+    margin: 6px 0
+    margin-left: 168px
+
+.beats-container
+
+  td
+    padding: 5px 15px
+    cursor: pointer
+    opacity: 1
+    transition: opacity .2s linear, background-color .2s linear
+
+    &.beat
+      background-color: blue-glowy
+
+    &.nobeat
+      background-color: white
+
+    &.currentbeat
+      opacity: .4

@@ -1,0 +1,43 @@
+{
+  "author": "Jan Monschke <jan.monschke@gmail.com>",
+  "name": "web-audio-editor",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/.bin/grunt build"
+  },
+  "dependencies": {
+    "stylus": "0.32.0",
+    "nib": "0.9.1",
+    "express": "~3.4.4",
+    "jade": "~0.35.0",
+    "jsondiffpatch": "0.0.11",
+    "socket.io": "0.9.16",
+    "underscore": "1.6.0",
+    "cradle": "0.6.7",
+    "bcrypt": "~0.7.7",
+    "passport": "~0.2.0",
+    "passport-local": "~0.1.6",
+    "connect-redis": "~1.4.7",
+    "q": "~1.0.0",
+    "mkdirp": "~0.3.5",
+    "opentok": "^2.2.4",
+    "knox": "^0.9.1",
+
+    "grunt": "~0.4.1",
+    "grunt-cli": "0.1.13",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-contrib-stylus": "~0.7.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "connect-livereload": "~0.3.2",
+    "grunt-html2js": "~0.2.4"
+  },
+  "private": true,
+  "main": "server.js"
+}

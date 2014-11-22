@@ -1,0 +1,54 @@
+@import 'nib'
+@import '_variables'
+@import '_animations'
+@import '_buttons'
+
+@import 'ui-elements/_duo_range'
+
+@import '_modal'
+@import '_track'
+@import '_piece'
+@import '_pieceEdit'
+@import '_drumEdit'
+@import '_synthEdit'
+@import '_effects'
+@import '_recording'
+@import '_progressLine'
+@import '_timeLine'
+@import '_fileBrowser'
+@import '_communicationPanel'
+
+body
+  background-color: darkgrey-background
+  color: white-font
+
+a
+  color: white
+  text-decoration: none
+
+  &:visited
+    color: white
+
+ul
+  list-style-type: none
+
+.vertical-button-container
+  display: inline
+
+  button
+    display: block
+    margin: 5px 0
+    width: 110px
+
+.menu-header
+  height: master-track-height
+  padding: 0 10px
+  background-color: darkgrey-background
+  border-bottom: 1px solid #444
+  line-height: 40px
+  font-size: 18px
+
+  .close
+    float: right
+    font-size: 13px
+    cursor: pointer

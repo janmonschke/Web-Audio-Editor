@@ -1,0 +1,13 @@
+<div class="menu-header">
+  <span>File Browser</span>
+  <span class="icon-cancel close" ng-click="hideFileBrowser()"></span>
+</div>
+<ul>
+  <li ng-repeat="file in files track by file.id" ng-class="{active: isActiveFile(file.name)}">
+    <span contenteditable ng-model="file.name">{{ file.name }}</span>
+
+    <span class="icon-cancel remove" ng-click="removeBuffer(file)"></span>
+
+    <span class="icon-move drag" draggable="true" data-buffer-id="{{ file.id }}"></span>
+  </li>
+</ul>

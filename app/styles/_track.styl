@@ -1,0 +1,140 @@
+.master-track
+  position: fixed
+  top: 0
+  left: 0
+  height: master-track-height
+  width: 100%
+  background-color: lighter-darkgrey-background
+  z-index: 2
+
+  button
+    margin: -1px 5px
+
+    &:first-child
+      margin-left: 0
+
+    &.add-track, &.file-browser
+      float: right
+
+    &.play-pause, &.stop
+      font-size: 10px
+
+  input[type=range]
+    display: inline
+    margin: 8px 5px
+
+  .controls
+    padding: 10px
+
+    .add-track-menu
+      margin: 0
+      padding: 0
+      margin-top: -2px
+      float: right
+      list-style-type: none
+      border: 1px solid darkgrey-background
+      border-radius: 5px
+      font-size: 12px
+      font-weight: lighter
+      background-color: lighter-darkgrey-background
+
+      li
+        padding: 10px
+        border-bottom: 1px solid darkgrey-background
+        cursor: pointer
+
+        &:hover
+          background-color: darkgrey-background
+
+        &:last-child
+          border-bottom: none
+
+.track
+  clear: both
+  height: track-height
+  border-bottom: 1px solid grey-highlight
+  border-top: 1px solid grey-highlight
+
+  &.drop-here
+    background-color: grey-highlight
+
+  .controls
+    position: relative
+    padding: 5px 0 0 10px
+    float: left
+    height: 100%
+    border-right: 1px solid grey-highlight
+    width: track-settings-gutter
+
+    input[type=range].gain
+      width: 130px
+
+    .track-settings
+      margin: 13px
+
+      button
+        transition: background-color .1s ease-in
+
+        &.active
+          background-color: #333
+          box-shadow: none
+
+    .label
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      font-weight: lighter
+      width: track-settings-gutter - 18px
+
+      &:focus
+        text-overflow: inherit
+
+    .add-piece
+      position: absolute
+      top: 3px
+      right: 5px
+      font-weight: lighter
+
+      .icon-plus
+        font-size: 11px
+        line-height: 15px
+        vertical-align: middle
+
+    .remove-track
+      position: absolute
+      bottom: 5px
+      left: 5px
+      font-weight: lighter
+      opacity: 0
+      transition: opacity .1s linear
+      padding: 1px
+      padding-right: 3px
+
+      &:hover
+        background-color: lighten(red, 20%)
+
+      .icon-cancel
+        font-size: 11px
+        line-height: 13px
+        vertical-align: middle
+
+
+    &:hover
+      .remove-track
+        opacity: 1
+
+  .pieces
+    position: relative
+    margin-left: track-settings-gutter + 10px
+
+  input[type=range]
+    display: block
+    margin: 20px
+
+.additional-content
+  margin-left: track-settings-gutter + 10px
+
+  .additional-content-controls
+    clear: both
+    padding: 15px
+    border-top: 1px solid grey-highlight

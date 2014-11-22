@@ -1,0 +1,51 @@
+#file-browser
+  position: fixed
+  top: 0
+  right: 0
+  height: 100%
+  width: 350px
+  overflow-y: scroll
+  background-color: lighter-darkgrey-background
+  border-left: 1px solid #444
+  z-index: 1
+  box-shadow: -3px 0px 3px 0px rgba(0, 0, 0, 0.2)
+
+  ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+
+    li
+      font-weight: 100
+      padding: 10px
+      border-bottom: 1px solid rgba(0,0,0,.1)
+      cursor: text
+
+      &.active
+        background-color: blue-highlight
+
+        &:hover
+          background-color: darken(blue-highlight, 20%)
+
+      &:hover
+        background-color: darken(darkgrey-background, 20%)
+
+        .remove, .drag
+          display: block
+
+      .remove, .drag
+        float: right
+        display: none
+        font-size: 11px
+        padding: 5px
+
+      .remove
+        cursor: pointer
+        border-radius: 5px
+
+        &:hover
+          background-color: remove-red
+
+      .drag
+        cursor: move
+

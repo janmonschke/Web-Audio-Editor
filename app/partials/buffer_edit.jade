@@ -1,0 +1,13 @@
+.controls
+  button.topcoat-button--large.play-selection Play Selection
+  select.track-listing
+    option(value="new") New Track
+    each track in tracks
+      option(value=track.id)= track.title
+  input.track-time(value=piecePosition)
+  button.topcoat-button--large.done Done
+.preview
+.curtain
+  .left
+  .right
+.range-container

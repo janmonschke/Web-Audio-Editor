@@ -1,0 +1,60 @@
+<div class="left-container">
+  <div class="pattern-container">
+    <div ng-class="{active: isCurrentPattern('a')}" draggable="true" data-pattern-name="a" ng-click="showPart('a')">
+      A
+    </div>
+    <div ng-class="{active: isCurrentPattern('b')}" draggable="true" data-pattern-name="b" ng-click="showPart('b')">
+      B
+    </div>
+    <div ng-class="{active: isCurrentPattern('c')}" draggable="true" data-pattern-name="c" ng-click="showPart('c')">
+      C
+    </div>
+    <div ng-class="{active: isCurrentPattern('d')}" draggable="true" data-pattern-name="d" ng-click="showPart('d')">
+      D
+    </div>
+    <div ng-class="{active: isCurrentPattern('e')}" draggable="true" data-pattern-name="e" ng-click="showPart('e')">
+      E
+    </div>
+    <div ng-class="{active: isCurrentPattern('f')}" draggable="true" data-pattern-name="f" ng-click="showPart('f')">
+      F
+    </div>
+  </div>
+
+  <h4>Pattern settings</h4>
+  <div class="bpm-chooser">
+    <div>BPM:</div><input type="number" ng-model="node[currentPatternName].data.bpm" min="55" max="200" />
+  </div>
+
+  <div class="slot-chooser">
+    <div>Slots:</div><input type="number" ng-model="node[currentPatternName].data.slots" min="8" max="32" ng-change="changeSlots()" />
+  </div>
+
+  <h4>Drum settings</h4>
+  <div class="kit-chooser">
+    <div>Kit:</div>
+    <select ng-model="piece.drumType">
+      <option ng-repeat="kit in avalaibleDrumkits">{{ kit }}</option>
+    </select>
+  </div>
+</div>
+
+<div class="right-container">
+  <div class="beats-container">
+    <div beats-grid ng-model="node.currentPattern"></div>
+  </div>
+
+  <div class="parts-order-container">
+    <span class="pattern-description">Pattern order:</span>
+    <div class="pattern" ng-repeat="pattern in piece.patternOrder track by $index" >
+      <span class="move-left" ng-click="movePatternRight($index)" ng-if="!$first"> < </span>
+      <span class="pattern-element" ng-dblclick="removeFromPatternOrder($index)">{{ pattern }}</span>
+      <span class="move-right" ng-click="movePatternLeft($index)" ng-if="!$last"> > </span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="topcoat-button play-pause" ng-click="startStopPlayback()">
+      <div ng-class="playState()"></div>
+    </button>
+  </div>
+</div>
