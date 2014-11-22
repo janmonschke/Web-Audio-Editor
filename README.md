@@ -2,7 +2,7 @@
 
 A web-based audio editor which allows you to create songs from your browser in collaboration with your band members/friends.
 
-If you want to have a look at how the editor works, check out my presentation from JSCONF.eu 2014:
+If you want to have a look at how the editor works (especially that part where my brother and my flat mate are jamming a RHCP song), check out [the video of my presentation from JSCONF.eu 2014](http://youtu.be/cqtBpCqgOgM):
 
 [![Presenting the editor at JSCONF.eu 2014](http://img.youtube.com/vi/cqtBpCqgOgM/0.jpg)](http://youtu.be/cqtBpCqgOgM)
 
