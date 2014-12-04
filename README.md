@@ -22,7 +22,7 @@ While having a look at the code, you might have realized that there is not much 
 
 ## Thesis
 
-This work is the result of my master's thesis which you can find here: [Github Repo](https://github.com/janmonschke/Master-s-Thesis---Web-Audio-DAW) [PDF version](http://cl.ly/1H111o1w1Z0T)
+This work is the result of my master's thesis which you can find here: ([PDF version](http://cl.ly/1H111o1w1Z0T)) ([Github Repo](https://github.com/janmonschke/Master-s-Thesis---Web-Audio-DAW))
 
 ## Bugs
 
