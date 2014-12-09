@@ -52,7 +52,7 @@ module.exports = function(app, auth){
   app.post('/arrangement/:new', ArrangementController.create);
   app.delete('/arrangement/:arrangement_id/delete_upload/:file_name', ArrangementController.deleteUpload);
 
-  app.get('/arrangement/:arrangement_id/webrtc_session', WebRTCSessionController.show);
+  // app.get('/arrangement/:arrangement_id/webrtc_session', WebRTCSessionController.show);
 
   app.get('/', renderIndex);
   app.get('/recording', renderIndex);
