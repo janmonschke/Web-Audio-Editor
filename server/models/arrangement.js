@@ -67,10 +67,6 @@ module.exports = {
       db.save(data._id, model._rev, data, function(err, res){
         if(err)
           console.log('there was an error saving the arrangement', err);
-        // update the _rev of the doc
-        if(!err){
-          data._rev = res.rev;
-        }
         cb(err, res);
       });
     })

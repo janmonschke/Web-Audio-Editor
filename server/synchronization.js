@@ -50,8 +50,9 @@ var registerSocketFor = function(id, socket){
 
 var sendServerChanges = function(doc, clientDoc, socket, send){
   // create a diff from the current server version to the client's shadow
-  var diff = jsondiffpatch.diff(clientDoc.shadow.doc, doc.serverCopy);
-  var basedOnServerVersion = clientDoc.shadow.serverVersion
+  // important: use deepcopied versions
+  var diff = jsondiffpatch.diff(deepCopy(clientDoc.shadow.doc), deepCopy(doc.serverCopy));
+  var basedOnServerVersion = clientDoc.shadow.serverVersion;
 
   // add the difference to the server's edit stack
   if(!_.isEmpty(diff)){
@@ -118,10 +119,9 @@ var receiveEdit = function(clientEdit, socket, send){
     }
 
     // when the versions match, remove old edits stack
-    if(clientEdit.serverVersion == clientDoc.shadow.serverVersion)
+    if(clientEdit.serverVersion == clientDoc.shadow.serverVersion){
       clientDoc.edits = [];
-
-    console.log(socket.id, clientEdit.serverVersion, clientDoc.shadow.serverVersion, 'amount of edits:', clientEdit.edits.length);
+    }
 
     // 1) iterate over all edits
     clientEdit.edits.forEach(function(edit){
@@ -208,7 +208,7 @@ var saveSnapshot = function(id){
 };
 
 var save = function(doc){
-  Arrangement.save(doc);
+  Arrangement.save(deepCopy(doc));
 };
 save = _.debounce(save, 1000);
 

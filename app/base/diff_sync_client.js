@@ -73,7 +73,6 @@ app.factory('DiffSyncClient', ['$rootScope', 'jsondiffpatch', 'utils', function(
 
       // listen to errors and reload
       this.socket.on('error', function(message){
-        alert('An error occured: ' + message);
         window.location.reload();
       });
     },
@@ -163,6 +162,7 @@ app.factory('DiffSyncClient', ['$rootScope', 'jsondiffpatch', 'utils', function(
       }
 
       this.syncing = false;
+      this.scheduled = false;
     },
 
     applyServerEdit: function(edit){
@@ -196,10 +196,7 @@ app.factory('DiffSyncClient', ['$rootScope', 'jsondiffpatch', 'utils', function(
 
       this.scheduled == true;
 
-      setTimeout(function(){
-        this.syncWithServer();
-        this.scheduled == false;
-      }.bind(this), 50);
+      this.syncWithServer();
     }
 
   };
@@ -207,7 +204,10 @@ app.factory('DiffSyncClient', ['$rootScope', 'jsondiffpatch', 'utils', function(
   client.socket = io.connect();
   client.socket.on('connect', client.initializeOrSync.bind(client));
 
-  client.syncWithServer = _.debounce(client.syncWithServer.bind(client), 50)
+  client.syncWithServer = _.debounce(client.syncWithServer.bind(client), 50);
+
+  // make sure that clients sync at least every 5 seconds
+  setInterval(client.scheduleSync.bind(client), 5000);
 
   window.client = client;
   return client;
