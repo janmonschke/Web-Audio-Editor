@@ -1,6 +1,6 @@
 var UserController = require('./controllers/user_controller');
 var ArrangementController = require('./controllers/arrangement_controller');
-var WebRTCSessionController = require('./controllers/webrtc_session_controller')
+// var WebRTCSessionController = require('./controllers/webrtc_session_controller')
 
 module.exports = function(app, auth){
   var renderIndex = function(req, res){
