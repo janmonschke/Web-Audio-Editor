@@ -14,7 +14,8 @@ Warning: this repo is only a proof of concept and the code is not perfect ;)
 1. `npm install`
 2. Copy `server/config/config.js.sample` to `server/config/config.js` and fill it with your credentials
 3. `grunt w`
-4. `open http://localhost:3000`
+4. `node server.js`
+5. `open http://localhost:3000`
 
 ## Understanding the code
 
